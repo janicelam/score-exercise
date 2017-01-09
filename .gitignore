@@ -26,7 +26,7 @@ hosts_*
 
 # Common FE Development Folders #
 #################################
-hum/hum.fe.redesign/.sass-cache/
-hum/hum.fe.redesign/cache/
-hum/hum.fe.redesign/node_modules/
-hum/hum.fe.redesign/build/
+/.sass-cache/
+/cache/
+/node_modules/
+/build/
