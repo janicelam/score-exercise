@@ -11,6 +11,8 @@ Run `npm install` after clone to download gulp and other required modules.
 ---
 ### Tasks:
 
+**gulp** - builds everything into build folder
+
 **gulp build** - cleans and builds everything into build folder
 
 **gulp clean** - cleans build folder

@@ -26,7 +26,17 @@ var sassPaths = [
   'node_modules/foundation-sites/scss'
 ];
 
-gulp.task('default', ['scss','js','assemble'], function() {
+gulp.task('build', ['clean'], function() {
+  gulp.run('default');
+});
+
+gulp.task('clean', function(cb) {
+  var del = require('del');
+
+  return del([paths.build+'**/*'], cb);
+});
+
+gulp.task('default', ['js','scss','assemble'], function() {
 
   browserSync.init({
     server: "./build"
@@ -51,15 +61,6 @@ gulp.task('assemble-watch', ['assemble'], browserSync.reload);
 gulp.task('images-watch', ['images'], browserSync.reload);
 
 
-gulp.task('build', ['clean'], function() {
-  gulp.run('default');
-});
-
-gulp.task('clean', function(cb) {
-  var del = require('del');
-
-  return del([paths.build+'**/*'], cb);
-});
 
 // ----------------------------------------------------------------
 
