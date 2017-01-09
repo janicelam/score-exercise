@@ -9,9 +9,6 @@ var cleanCSS      = require('gulp-clean-css');
 var gutil         = require('gutil');
 var htmlmin       = require('gulp-htmlmin');
 
-// images
-var imagemin      = require('gulp-imagemin');
-
 // js
 var browserify    = require('gulp-browserify');
 var uglify        = require('gulp-uglify');
