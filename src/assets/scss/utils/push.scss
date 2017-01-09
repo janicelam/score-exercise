@@ -1,0 +1,51 @@
+$push-slug: push !default;
+
+@for $i from 0 through 20 {
+
+    /*
+    * Commenting for now, keeps large  or default from applying if these classes are also applied
+    */
+    // .#{$push-slug}--small-#{$i+'0'},
+    // .#{$push-slug}--medium-#{$i+'0'}{
+    //     margin-top: 0;
+    // }
+
+    .#{$push-slug}--#{$i+'0'},
+    .#{$push-slug}--small-#{$i+'0'}{
+        margin-top: #{($i+'0')+'px'};
+    }
+
+    .push--small-clear{
+        margin-top: 0px;
+    }
+}
+
+
+// @include breakpoint(large){
+//
+//
+//     @for $i from 1 through 20 {
+//         .#{$push-slug}--large-#{$i+'0'}{
+//             margin-top: #{($i+'0')+'px'};
+//         }
+//     }
+//
+//     .push--large-clear{
+//         margin-top: 0px !important;
+//     }
+//
+// }
+//
+// @include breakpoint(medium){
+//
+// 	@for $i from 1 through 20 {
+//
+// 	    .#{$push-slug}--medium-#{$i+'0'}{
+// 	    	margin-top: #{($i+'0')+'px'};
+// 	    }
+// 	}
+//
+// 	.push--medium-clear{
+//         margin-top: 0px !important;
+//     }
+// }

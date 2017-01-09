@@ -1,0 +1,57 @@
+// Global
+body {
+  -webkit-font-smoothing:antialiased;
+  font: 16px $default-font;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.antialiased { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+// Display - vertical align middle
+.valign {
+  position:absolute;
+  top:50%;
+  left:0;
+  width: 100%;
+  transform: translateY(-50%);
+}
+//
+// @include breakpoint(medium) {
+//   .medium-valign {
+//     position:absolute;
+//     top:50%;
+//     left:0;
+//     width: 100%;
+//     transform: translateY(-50%);
+//   }
+// }
+// @include breakpoint(large) {
+//   .large-valign {
+//     position:absolute;
+//     top:50%;
+//     left:0;
+//     width: 100%;
+//     transform: translateY(-50%);
+//   }
+// }
+// @include breakpoint(xlarge) {
+//   .xlarge-valign {
+//     position:absolute;
+//     top:50%;
+//     left:0;
+//     width: 100%;
+//     transform: translateY(-50%);
+//   }
+// }
+// @include breakpoint(xxlarge) {
+//   .xxlarge-valign {
+//     position:absolute;
+//     top:50%;
+//     left:0;
+//     width: 100%;
+//     transform: translateY(-50%);
+//   }
+// }

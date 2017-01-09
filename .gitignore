@@ -1,0 +1,32 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+.metadata
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+*/target/
+vault/
+target/
+*.iml
+*.ipr
+*.iws
+*.class
+*.DS_Store
+*.idea
+*.classpath
+*.project
+*.settings/
+*.settings
+*.vagrant
+*.vlt
+git_stats
+hosts_*
+
+# Common FE Development Folders #
+#################################
+hum/hum.fe.redesign/.sass-cache/
+hum/hum.fe.redesign/cache/
+hum/hum.fe.redesign/node_modules/
+hum/hum.fe.redesign/build/

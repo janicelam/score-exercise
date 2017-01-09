@@ -1,0 +1,142 @@
+<section class="partial-scoreboard rel">
+
+	<div class="scoreboard-content content-expanded">
+
+	<div class="loading-screen">
+		<div class="baseball-container">
+			<div class="rt-line"></div>
+			<div class="lt-line"></div>
+		</div>
+	</div>
+
+    {{#each mlb.sports}}
+			{{#each this.leagues}}
+					<div class="carousel-slick js-slick-slider">
+						{{#each this.events}}
+
+							<div>
+
+								{{#each this.venues}}
+									<img src="http://a.espncdn.com/combiner/i?img=/i/venues/mlb/day/{{this.id}}.jpg&w=970" alt="{{this.name}}" class="background-image valign" />
+								{{/each}}
+
+								{{#each this.competitions}}
+
+									<div class="behind-content">
+										<div class="frame">
+										</div>
+									</div>
+
+									<div class="slide-content">
+
+										{{#is  this.status.id 1}}
+											<div class="date">Today{{moment this.date format =" @ h:mm A"}}</div>
+										{{/is}}
+
+										{{#gt this.status.id 1}}
+											<div class="team-stats status">
+												<span class="open-stats js-open-stats">{{../this.status.detail}} <span class="btn"></span></span>
+												<div class="stats-container">
+													<table>
+														<tr>
+															<th></th>
+															<th><span class="text-bold">R</span></th>
+															<th><span class="text-bold">H</span></th>
+															<th><span class="text-bold">E</span></th>
+														</tr>
+														<tr>
+															<td><span class="text-bold">{{../this.competitors.1.team.abbreviation}}</span></td>
+															<td>{{../this.competitors.1.runs}}</td>
+															<td>{{../this.competitors.1.hits}}</td>
+															<td>{{../this.competitors.1.errors}}</td>
+														</tr>
+														<tr>
+															<td><span class="text-bold">{{../this.competitors.0.team.abbreviation}}</span></td>
+															<td>{{../this.competitors.0.runs}}</td>
+															<td>{{../this.competitors.0.hits}}</td>
+															<td>{{../this.competitors.0.errors}}</td>
+														</tr>
+													</table>
+													<div class="other-stats">
+														{{#is ../this.status.id 3}}
+															<span class="text-bold">WP:</span> <a href="{{../../this.stats.winningPitcher.athlete.links.web.href}}">{{../../this.stats.winningPitcher.athlete.firstName}} {{../../this.stats.winningPitcher.athlete.lastName}}</a><br/>
+															<span class="text-bold">LP:</span> <a href="{{../../this.stats.winningPitcher.athlete.links.web.href}}">{{../../this.stats.losingPitcher.athlete.firstName}} {{../../../this.stats.losingPitcher.athlete.lastName}}</a><br/>
+															<span class="text-bold">SP:</span> <a href="{{../../this.stats.winningPitcher.athlete.links.web.href}}">{{../../this.stats.savingPitcher.athlete.firstName}} {{../../this.stats.savingPitcher.athlete.lastName}}</a>
+														{{/is}}
+														{{#is ../this.status.id 2}}
+															<div class="diamond-stats">
+																<div class="first-base {{#gt ../../this.situation.onFirst 0}}active{{/gt}}" data-stat>
+																</div>
+																<div class="second-base {{#gt ../../this.situation.onSecond 0}}active{{/gt}}">
+																</div>
+																<div class="third-base {{#gt ../../this.situation.onThird 0}}active{{/gt}}">
+																</div>
+															</div>
+															<div class="current-stats">
+																Balls: {{ ../../this.situation.balls}}<br/>
+																Strikes: {{ ../../this.situation.strikes}}<br/>
+																Outs: {{ ../../this.situation.outs}}
+															</div>
+															<!-- <div class="last-bat">
+																{{ ../../this.situation.lastAtBatResult}}
+															</div> -->
+															<div class="player-stats">
+																<span class="text-bold">P:</span> {{../../this.situation.currentPitcher.firstName}} {{../../this.situation.currentPitcher.lastName}}<br/>
+																<span class="text-bold">AB:</span> {{../../this.situation.currentBatter.firstName}} {{../../this.situation.currentBatter.lastName}}
+															</div>
+														{{/is}}
+													</div>
+												</div>
+											</div>
+										{{/gt}}
+
+										<ul class="team-cont push--70">
+											{{#each this.competitors}}
+
+													{{#if @first}}
+
+														<li class="team-home">
+															<div class="team-overview">
+																{{#isnt ../this.status.id 1}}
+																	<div class="team-score">{{this.score}}</div>
+																{{/isnt}}
+																<div class="team-name">{{this.team.abbreviation}}<span class="record">{{this.team.record.summary}}</span></div>
+																<img src="http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/{{this.team.abbreviation}}.png&h=150&w=150" class="team-logo"/>
+															</div>
+														</li>
+
+													{{else}}
+
+														<li class="vs">
+															VS
+														</li>
+
+														<li class="team-away">
+															<div class="team-overview">
+																<img src="http://a.espncdn.com/combiner/i?img=/i/teamlogos/mlb/500/{{this.team.abbreviation}}.png&h=150&w=150" class="team-logo"/>
+																<div class="team-name">{{this.team.abbreviation}}<span class="record">{{this.team.record.summary}}</span></div>
+
+																{{#isnt ../this.status.id 1}}
+																	<div class="team-score">{{this.score}}</div>
+																{{/isnt}}
+															</div>
+														</li>
+
+													{{/if}}
+
+											{{/each}}
+										</ul>
+									</div>
+
+								{{/each}}
+							</div>
+
+						{{/each}}
+					</div>
+			{{/each}}
+
+		{{/each}}
+
+	</div>
+
+</section>

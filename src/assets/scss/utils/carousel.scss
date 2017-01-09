@@ -1,0 +1,34 @@
+.carousel-slick {
+  position:relative;
+  height:100%;
+  width:100%;
+
+  .slick-slide {
+    position: relative;
+  }
+
+  .slick-arrow {
+    position:absolute;
+    top:45%;
+    z-index: 10;
+    width:15px;
+    height:15px;
+    cursor: pointer;
+
+    &.slick-prev {
+      left:40px;
+      border-left: solid 2px $white;
+      border-bottom: solid 2px $white;
+      transform: rotate(45deg);
+    }
+
+    &.slick-next {
+      right:40px;
+      border-right: solid 2px $white;
+      border-bottom: solid 2px $white;
+      transform: rotate(-45deg);
+    }
+
+  }
+
+}

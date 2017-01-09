@@ -1,0 +1,391 @@
+.partial-scoreboard {
+  //background-color: $black;
+  width:970px;
+  height:250px;
+  margin:auto;
+  position: relative;
+
+  // .push-buttons {
+  //   position:absolute;
+  //   top:0;
+  //   right:0;
+  //
+  //   > img {
+  //     float:right;
+  //     cursor: pointer;
+  //   }
+  //
+  //   .hover-slide{
+  //     height: 35px;
+  //     float: right;
+  //     color: $white;
+  //     overflow: hidden;
+  //
+  //     span {
+  //       background-color: rgba(0, 0, 0, 0.38);
+  //       display: block;
+  //       margin-left:100%;
+  //       padding: 8px 10px 10px 15px;
+  //       transition: all 200ms ease-in;
+  //       white-space: nowrap;
+  //     }
+  //   }
+  //
+  //   .collapse-btn {
+  //     display: none;
+  //   }
+  //
+  //   &.isExpanded {
+  //
+  //     .collapse-btn {
+  //       display: block;
+  //     }
+  //
+  //     .expand-btn {
+  //       display: none;
+  //     }
+  //
+  //   }
+  //
+  //   &:hover {
+  //     .hover-slide {
+  //       span {
+  //         margin-left:0;
+  //       }
+  //     }
+  //   }
+  // }
+
+  .loading-screen {
+    background-color: $black;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 1000;
+
+    .baseball-container {
+      height:50px;
+      width:50px;
+      border-radius: 100%;
+      background-color: $white;
+      overflow: hidden;
+      position: absolute;
+      top: 38%;
+      left: 48%;
+      animation-name:             rotate;
+      animation-duration:         2s;
+      animation-iteration-count:  infinite;
+      animation-timing-function:  linear;
+
+      @-webkit-keyframes rotate {
+        from {
+          transform: rotate(0deg);
+          //left: 0%;
+        }
+        to {
+          transform: rotate(360deg);
+          //left: 100%;
+        }
+      }
+
+      .rt-line {
+        position: absolute;
+        border: 2px dotted $red;
+        border-radius: 100%;
+        height:50px;
+        width:50px;
+        top:0;
+        left:-65%;
+      }
+
+      .lt-line {
+        position: absolute;
+        border: 2px dotted $red;
+        border-radius: 100%;
+        height:50px;
+        width:50px;
+        top:0;
+        left:65%;
+      }
+
+    }
+
+  }
+
+  .slick-slide {
+    width: 970px;
+    height: 250px;
+  }
+
+  .slide-content {
+    height:100%;
+    width:100%;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .behind-content {
+    display: block;
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    padding: 20px;
+
+    .frame {
+      border: solid 1px $white;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+    }
+  }
+
+  .date {
+    color:$white;
+    font-weight: 700;
+    font-size: 16px;
+    position:absolute;
+    bottom:0;
+    left:0;
+    padding:8px 10px;
+    background-color: $red;
+  }
+
+  .team-stats {
+    position: absolute;
+    bottom: -215px;
+    left: 0;
+    color: #fff;
+    height: 100%;
+    z-index: 1000;
+    transition: all .5s ease-in-out;
+    width: 190px;
+
+    &.status {
+      text-align: center;
+    }
+
+    &.scheduled {
+      font-size: 40px;
+      margin:94px 40px 0;
+    }
+
+    .stats-container {
+      font-weight: 400;
+      font-size: 14px;
+      //width:0;
+      height:100%;
+      overflow: hidden;
+      //opacity: 0;
+      background: rgba(0,0,0,.8);
+      text-align: left;
+      padding: 0 40%;
+
+      table {
+        margin: 10px 0 15px;
+        border-collapse: collapse;
+        width: 100%;
+
+        tr {
+          border-bottom: solid 1px $white;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+
+        th {
+          border-bottom: solid 2px $white;
+          text-align: center;
+          padding: 5px;
+          width: 26px;
+        }
+
+        td {
+          padding: 5px;
+          text-align: center;
+          border-right: solid 1px $white;
+          width: 26px;
+
+          &:first-child {
+            text-align: left;
+            width:40px;
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+
+    .other-stats {
+      font-size: 12px;
+      width: 100%;
+      margin-bottom:15px;
+    }
+
+    .open-stats {
+      font-size: 16px;
+      font-weight: 700;
+      display: block;
+      cursor: pointer;
+      padding:8px 10px;
+      background-color:$green;
+      transition: all .5s cubic-bezier(.215,.61,.355,1);
+
+      &:hover {
+        background-color:$green_dk;
+      }
+
+      .btn {
+        margin-left: 7px;
+        border-right: solid 2px #ffffff;
+        border-bottom: solid 2px #ffffff;
+        transform: rotate(45deg);
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: none;
+        margin-bottom: 4px;
+        transition: all .5s ease-in-out;
+      }
+    }
+
+    &.isExpanded {
+      bottom:0;
+      width:100%;
+      .open-stats {
+        .btn {
+          transform: rotate(-135deg);
+          margin-bottom: 0;
+        }
+      }
+      .stats-container {
+        //width:200px;
+        //height:100%;
+        //opacity: 1;
+      }
+    }
+
+    .player-stats {
+      display: block;
+      margin: 5px;
+      white-space: normal;
+      clear: both;
+      padding-top: 10px;
+    }
+
+    .current-stats {
+      float: left;
+      margin-left: 5px;
+      white-space: normal;
+      display: block;
+    }
+
+    .diamond-stats {
+      position: relative;
+      width: 32px;
+      transform: rotate(45deg);
+      margin-right: 10px;
+      float: right;
+
+      > div {
+        width: 12px;
+        height: 12px;
+        background-color: $white;
+        white-space: normal;
+        float: left;
+        display: block;
+        margin: 2px;
+
+        &.active {
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+
+  .scoreboard-content {
+    overflow: hidden;
+
+    // &.content-collapsed {
+    //   width:970px;
+    //   height:66px;
+    // }
+
+    &.content-expanded {
+      width: 970px;
+      height: 250px;
+      background-color: $black;
+    }
+
+    .background-image {
+      opacity:.25;
+      width:100%;
+      height:auto;
+      margin-top: 60px;;
+    }
+  }
+
+  .team-cont {
+    position: relative;
+    padding:0;
+    display: inline-block;
+
+    li {
+      list-style: none;
+      float:right;
+      font-weight: 700;
+      height:100%;
+      color: $white;
+      position: relative;
+
+      div {
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
+
+    .team-name {
+      text-align: center;
+      .record {
+        font-weight: 400;
+        font-size: 12px;
+        display: block;
+      }
+    }
+
+    .team-score {
+      font-size: 40px;
+      margin:0 20px;
+    }
+
+    .team-logo {
+      max-width: 100px;
+      margin:0 20px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .team-away {
+      .team-overview {
+        float:right;
+      }
+    }
+
+    .vs {
+      margin:30px 40px 0;
+      font-size: 30px;
+      text-align: center;
+    }
+  }
+
+}
